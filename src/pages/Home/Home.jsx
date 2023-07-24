@@ -9,7 +9,7 @@ const Home = () => {
     const { user } = useContext(AuthContext);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/community/canJoin/${user?.email}`)
+        fetch(`https://ovigo-server-wheat.vercel.app/community/canJoin/${user?.email}`)
             .then(res => res.json())
             .then((data) => {
                 setGroups(data);
@@ -17,7 +17,7 @@ const Home = () => {
     }, [user?.email]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/community/joined/${user?.email}`)
+        fetch(`https://ovigo-server-wheat.vercel.app/community/joined/${user?.email}`)
             .then(res => res.json())
             .then((data) => {
                 setJoinedGroupsPosts(data);
@@ -30,7 +30,7 @@ const Home = () => {
             userEmail: user.email
         }
 
-        fetch('http://localhost:5000/community/addjoined', {
+        fetch('https://ovigo-server-wheat.vercel.app/community/addjoined', {
             method: 'PATCH',
             body: JSON.stringify(info),
             headers: {
@@ -41,13 +41,13 @@ const Home = () => {
             .then((resData) => {
 
                 // update joined and can join group
-                fetch(`http://localhost:5000/community/canJoin/${user?.email}`)
+                fetch(`https://ovigo-server-wheat.vercel.app/community/canJoin/${user?.email}`)
                     .then(res => res.json())
                     .then((data) => {
                         setGroups(data);
                     })
 
-                fetch(`http://localhost:5000/community/joined/${user?.email}`)
+                fetch(`https://ovigo-server-wheat.vercel.app/community/joined/${user?.email}`)
                     .then(res => res.json())
                     .then((data) => {
                         setJoinedGroupsPosts(data);

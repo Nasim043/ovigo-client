@@ -14,7 +14,7 @@ const EditPost = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/posts/${params.id}`)
+        fetch(`https://ovigo-server-wheat.vercel.app/posts/${params.id}`)
             .then(res => res.json())
             .then((data) => {
                 setTitle(data[0].title);
@@ -30,7 +30,7 @@ const EditPost = () => {
             description: description
         }
 
-        fetch(`http://localhost:5000/posts/edit/${params?.id}`, {
+        fetch(`https://ovigo-server-wheat.vercel.app/posts/edit/${params?.id}`, {
             method: 'PATCH',
             body: JSON.stringify(postInfo),
             headers: {

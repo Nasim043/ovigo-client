@@ -7,7 +7,7 @@ const MyGroup = () => {
     const [groups, setGroups] = useState([]);
     const {user} = useContext(AuthContext);
     useEffect(() => {
-        fetch(`http://localhost:5000/community/${user?.email}`)
+        fetch(`https://ovigo-server-wheat.vercel.app/community/${user?.email}`)
             .then(res => res.json())
             .then((data) => {
                 setGroups(data);

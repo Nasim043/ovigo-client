@@ -26,7 +26,7 @@ const Login = () => {
                 // console.log(loggedInUser);
                 const newUser = { name: loggedInUser.displayName, email: loggedInUser.email, image: loggedInUser.photoURL }
 
-                fetch('http://localhost:5000/users', {
+                fetch('https://ovigo-server-wheat.vercel.app/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

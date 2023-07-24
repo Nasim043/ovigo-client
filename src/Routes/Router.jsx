@@ -51,7 +51,7 @@ const router = createBrowserRouter(
                 {
                     path: "editPost/:id",
                     element: <PrivateRoute><EditPost></EditPost></PrivateRoute>,
-                    // loader: ({ params }) => fetch(`http://localhost:5000/posts/${params.id}`)
+                    // loader: ({ params }) => fetch(`https://ovigo-server-wheat.vercel.app/posts/${params.id}`)
                 },
                 {
                     path: "manageMembers/:id",
@@ -60,7 +60,7 @@ const router = createBrowserRouter(
                 {
                     path: "details/:id",
                     element: <PrivateRoute><Details></Details></PrivateRoute>,
-                    loader: ({ params }) => fetch(`http://localhost:5000/community/details/${params.id}`)
+                    loader: ({ params }) => fetch(`https://ovigo-server-wheat.vercel.app/community/details/${params.id}`)
                 }
             ]
         }

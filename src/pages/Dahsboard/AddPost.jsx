@@ -26,7 +26,7 @@ const AddPost = () => {
             community_id: params.id,
         }
 
-        fetch('http://localhost:5000/posts', {
+        fetch('https://ovigo-server-wheat.vercel.app/posts', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

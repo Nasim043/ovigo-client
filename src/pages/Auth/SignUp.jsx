@@ -44,7 +44,7 @@ const SignUp = () => {
                 const loggedInUser = result.user;
                 console.log(loggedInUser);
                 const newUser = { name: loggedInUser.displayName, email: loggedInUser.email, image: loggedInUser.photoURL }
-                fetch('http://localhost:5000/users', {
+                fetch('https://ovigo-server-wheat.vercel.app/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -68,7 +68,7 @@ const SignUp = () => {
                     updateUserProfile(data.name, data.photoUrl)
                         .then(() => {
                             const newuser = { name: data.name, email: data.email, image: data.photoUrl }
-                            fetch('http://localhost:5000/users', {
+                            fetch('https://ovigo-server-wheat.vercel.app/users', {
                                 method: 'POST',
                                 headers: {
                                     'content-type': 'application/json'

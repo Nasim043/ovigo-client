@@ -45,7 +45,7 @@ const AddCommunity = () => {
                         description: description,
                     }
 
-                    fetch('http://localhost:5000/community', {
+                    fetch('https://ovigo-server-wheat.vercel.app/community', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json'

@@ -9,7 +9,7 @@ const ManageMembers = () => {
     const params = useParams();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/community/users/${params?.id}`)
+        fetch(`https://ovigo-server-wheat.vercel.app/community/users/${params?.id}`)
             .then(res => res.json())
             .then((data) => {
                 setUsers(data);
@@ -22,7 +22,7 @@ const ManageMembers = () => {
             userEmail: userEmail,
         }
 
-        fetch('http://localhost:5000/community/removeJoined', {
+        fetch('https://ovigo-server-wheat.vercel.app/community/removeJoined', {
             method: 'PATCH',
             body: JSON.stringify(deleteInfo),
             headers: {
@@ -34,7 +34,7 @@ const ManageMembers = () => {
                 // console.log(resData);
 
                 // get updated user information
-                fetch(`http://localhost:5000/community/users/${params?.id}`)
+                fetch(`https://ovigo-server-wheat.vercel.app/community/users/${params?.id}`)
                     .then(res => res.json())
                     .then((data) => {
                         setUsers(data);

@@ -9,7 +9,7 @@ const useGetUserId = () => {
   useEffect(() => {
     const fetchUserId = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/getuserId/${user?.email}`);
+        const response = await axios.get(`https://ovigo-server-wheat.vercel.app/getuserId/${user?.email}`);
         setUserId(response.data.userId);
       } catch (error) {
         console.error('Error fetching user ID:', error);

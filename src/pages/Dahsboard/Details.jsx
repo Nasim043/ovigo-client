@@ -7,7 +7,7 @@ const Details = () => {
     const params = useParams();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/posts?communityid=${params?.id}`)
+        fetch(`https://ovigo-server-wheat.vercel.app/posts?communityid=${params?.id}`)
             .then(res => res.json())
             .then((data) => {
                 setPosts(data);
