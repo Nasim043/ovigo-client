@@ -41,7 +41,7 @@ const ManageMembers = () => {
                     })
 
                 if (resData.matchedCount) {
-                    toast.success('Removed user from the community', {
+                    toast.success('Removed from the community', {
                         closeOnClick: true,
                     })
                 }

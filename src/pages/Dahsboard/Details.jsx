@@ -1,10 +1,8 @@
-import { useContext, useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 import { Link, useLoaderData, useParams } from "react-router-dom";
-import { AuthContext } from "../../provider/AuthProvider";
 
 const Details = () => {
     const [posts, setPosts] = useState([]);
-    const { user } = useContext(AuthContext);
     const data = useLoaderData();
     const params = useParams();
 
@@ -16,7 +14,6 @@ const Details = () => {
             })
     }, [params?.id]);
 
-    console.log(posts);
     return (
         <div className="my-container">
             <div className="hero max-h-fit bg-base-200">

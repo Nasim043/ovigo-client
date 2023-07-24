@@ -10,6 +10,7 @@ import EditPost from "../pages/Dahsboard/Editpost";
 import MyGroup from "../pages/Dahsboard/MyGroup";
 import Details from "../pages/Dahsboard/Details";
 import ManageMembers from "../pages/Dahsboard/ManageMembers";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter(
     [
@@ -31,34 +32,34 @@ const router = createBrowserRouter(
                 },
                 {
                     path: "addCommunity",
-                    element: <AddCommunity></AddCommunity>
+                    element: <PrivateRoute><AddCommunity></AddCommunity></PrivateRoute>
                 }
             ]
         },
         {
             path: "dashboard",
-            element: <Dashboard></Dashboard>,
+            element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
             children: [
                 {
                     path: "/dashboard",
-                    element: <MyGroup></MyGroup>,
+                    element: <PrivateRoute><MyGroup></MyGroup></PrivateRoute>,
                 },
                 {
                     path: "addPost/:id",
-                    element: <AddPost></AddPost>
+                    element: <PrivateRoute><AddPost></AddPost></PrivateRoute>
                 },
                 {
                     path: "editPost/:id",
-                    element: <EditPost></EditPost>,
+                    element: <PrivateRoute><EditPost></EditPost></PrivateRoute>,
                     // loader: ({ params }) => fetch(`http://localhost:5000/posts/${params.id}`)
                 },
                 {
                     path: "manageMembers/:id",
-                    element: <ManageMembers></ManageMembers>,
+                    element: <PrivateRoute><ManageMembers></ManageMembers></PrivateRoute>,
                 },
                 {
                     path: "details/:id",
-                    element: <Details></Details>,
+                    element: <PrivateRoute><Details></Details></PrivateRoute>,
                     loader: ({ params }) => fetch(`http://localhost:5000/community/details/${params.id}`)
                 }
             ]

@@ -63,7 +63,6 @@ const EditPost = () => {
                         name="title"
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
-                        // defaultValue='ami'
                         className="w-full border border-gray-300 rounded-md p-2"
                         required
                     />

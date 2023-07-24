@@ -1,20 +1,26 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import { Link } from "react-router-dom";
-import { FaRegEye } from "react-icons/fa";
-import useGetUserId from "../../hooks/useGetUserId";
 import { toast } from "react-toastify";
 
 const Home = () => {
     const [groups, setGroups] = useState([]);
+    const [joinedGroupsPosts, setJoinedGroupsPosts] = useState([]);
     const { user } = useContext(AuthContext);
-    // const userId = useGetUserId();
-    // console.log(userId);
+
     useEffect(() => {
-        fetch("http://localhost:5000/community")
+        fetch(`http://localhost:5000/community/canJoin/${user?.email}`)
             .then(res => res.json())
             .then((data) => {
                 setGroups(data);
+            })
+    }, [user?.email]);
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/community/joined/${user?.email}`)
+            .then(res => res.json())
+            .then((data) => {
+                setJoinedGroupsPosts(data);
             })
     }, [user?.email]);
 
@@ -23,7 +29,6 @@ const Home = () => {
             communityId: id,
             userEmail: user.email
         }
-        // console.log(info);
 
         fetch('http://localhost:5000/community/addjoined', {
             method: 'PATCH',
@@ -34,17 +39,49 @@ const Home = () => {
         })
             .then((res) => res.json())
             .then((resData) => {
-                // console.log(resData);
+
+                // update joined and can join group
+                fetch(`http://localhost:5000/community/canJoin/${user?.email}`)
+                    .then(res => res.json())
+                    .then((data) => {
+                        setGroups(data);
+                    })
+
+                fetch(`http://localhost:5000/community/joined/${user?.email}`)
+                    .then(res => res.json())
+                    .then((data) => {
+                        setJoinedGroupsPosts(data);
+                    })
+
                 if (resData.matchedCount) {
                     toast.success('Successfully join', {
                         closeOnClick: true,
-                      })
+                    })
                 }
             })
     };
     return (
-        <div className='my-container mt-12'>
+        <div className='my-container mt-4'>
             <div className="flex flex-col justify-center items-center mb-7">
+                <h2 className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-blue-500 inline-block text-transparent bg-clip-text mb-4">Joined communities</h2>
+                <p className="text-gray-400 text-base sm:text-lg text-center">Welcome to your joined communities! Find your interests and engage with fellow members.</p>
+            </div>
+            <div className="container mx-auto py-4">
+                <div className="grid gap-4 md:grid-cols-2">
+                    {
+                        joinedGroupsPosts?.map((post) => (
+                            <div className="card w-full bg-gray-100 shadow-md mb-4" key={post._id}>
+                                <div className="card-body">
+                                    <h2 className="card-title text-purple-600">{post.title}</h2>
+                                    <p className='text-base font-semibold italic'>Written by: {post.writer_name}</p>
+                                    <p className='text-base'>{post.description}</p>
+                                </div>
+                            </div>))
+                    }
+                </div>
+            </div>
+
+            <div className="flex flex-col justify-center items-center my-16">
                 <h2 className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-blue-500 inline-block text-transparent bg-clip-text mb-4">Join other communities</h2>
                 <p className="text-gray-400 text-base sm:text-lg text-center">Find communities that interest you and connect with other people</p>
             </div>

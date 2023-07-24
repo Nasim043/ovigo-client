@@ -59,19 +59,9 @@ const AddCommunity = () => {
                                 toast.success('Community created successfully', {
                                     closeOnClick: true,
                                 })
-                                navigate('/');
+                                navigate('/dashboard');
                             }
                         })
-
-                    // axiosSecure.post('/classes', communityInfo)
-                    //     .then(data => {
-                    //         if (data.data.insertedId) {
-                    //             formReset();
-                    //             toast.success('Community created successfully', {
-                    //                 closeOnClick: true,
-                    //               })
-                    //         }
-                    //     })
                 }
             })
 
@@ -136,7 +126,6 @@ const AddCommunity = () => {
                     </label>
                     <textarea className="textarea border border-gray-300 textarea-md w-full"
                         placeholder="Description"
-                        // defaultValue={data?.description}
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
                         id="description"

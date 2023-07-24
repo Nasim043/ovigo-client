@@ -15,7 +15,7 @@ const MyGroup = () => {
     }, [user?.email]);
 
     return (
-        <div className='my-container mt-12'>
+        <div className='my-container mt-4'>
       <div className="flex flex-col justify-center items-center mb-7">
         <h2 className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-blue-500 inline-block text-transparent bg-clip-text mb-4">My Communities</h2>
         <p className="text-gray-400 text-base sm:text-lg text-center">Manage communities posts and members here</p>
