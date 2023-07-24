@@ -14,3 +14,6 @@
   .inactive-link {
     @apply btn btn-ghost capitalize font-normal;
   }
+  .error {
+    color: #ef4444;
+  }

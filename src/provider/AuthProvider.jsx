@@ -13,7 +13,7 @@ const AuthProvider = ({ children }) => {
   const [control, setControl] = useState(false);
 
   // email/password registration
-  const register = (email, password) => {
+  const registerAuth = (email, password) => {
     setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password)
   }
@@ -59,7 +59,7 @@ const AuthProvider = ({ children }) => {
   }, [])
 
   const authInfo = {
-    user, register, login, logOut, updateUserProfile, loading, googleLogIn, githubLogIn,
+    user, registerAuth, login, logOut, updateUserProfile, loading, googleLogIn, githubLogIn,
     control, setControl
   };
 
