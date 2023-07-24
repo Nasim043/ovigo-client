@@ -28,7 +28,7 @@ const Details = () => {
                         <p className="py-6">{data.description}</p>
                         <div className="flex">
                             <Link className="btn btn-sm btn-primary me-2 my-button" to={`../addPost/${data._id}`}>Create Post</Link>
-                            <Link className="btn btn-sm btn-primary my-button">Manage Members</Link>
+                            <Link className="btn btn-sm btn-primary my-button" to={`../manageMembers/${data._id}`}>Manage Members</Link>
                         </div>
                     </div>
                 </div>

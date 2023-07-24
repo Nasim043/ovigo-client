@@ -9,6 +9,7 @@ import AddPost from "../pages/Dahsboard/AddPost";
 import EditPost from "../pages/Dahsboard/Editpost";
 import MyGroup from "../pages/Dahsboard/MyGroup";
 import Details from "../pages/Dahsboard/Details";
+import ManageMembers from "../pages/Dahsboard/ManageMembers";
 
 const router = createBrowserRouter(
     [
@@ -50,6 +51,10 @@ const router = createBrowserRouter(
                     path: "editPost/:id",
                     element: <EditPost></EditPost>,
                     // loader: ({ params }) => fetch(`http://localhost:5000/posts/${params.id}`)
+                },
+                {
+                    path: "manageMembers/:id",
+                    element: <ManageMembers></ManageMembers>,
                 },
                 {
                     path: "details/:id",

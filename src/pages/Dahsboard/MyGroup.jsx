@@ -17,8 +17,8 @@ const MyGroup = () => {
     return (
         <div className='my-container mt-12'>
       <div className="flex flex-col justify-center items-center mb-7">
-        <h2 className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-blue-500 inline-block text-transparent bg-clip-text mb-4">My Groups</h2>
-        <p className="text-gray-400 text-base sm:text-lg text-center">Manage your groups posts and group members here</p>
+        <h2 className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-blue-500 inline-block text-transparent bg-clip-text mb-4">My Communities</h2>
+        <p className="text-gray-400 text-base sm:text-lg text-center">Manage communities posts and members here</p>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
         {groups.map((group) => (
