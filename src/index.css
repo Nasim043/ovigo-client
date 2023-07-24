@@ -17,3 +17,6 @@
   .error {
     color: #ef4444;
   }
+  .my-button{
+    @apply bg-gradient-to-r from-purple-400 to-blue-500 hover:from-pink-500 hover:to-orange-500 font-semibold text-white py-2 px-4 rounded-b-lg focus:outline-none border-none capitalize;
+  }

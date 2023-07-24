@@ -5,6 +5,10 @@ import SignUp from "../pages/Auth/SignUp";
 import Dashboard from "../pages/Dahsboard/Dashboard";
 import Home from "../pages/Home/Home";
 import AddCommunity from "../pages/Community/AddCommunity";
+import AddPost from "../pages/Dahsboard/AddPost";
+import EditPost from "../pages/Dahsboard/Editpost";
+import MyGroup from "../pages/Dahsboard/MyGroup";
+import Details from "../pages/Dahsboard/Details";
 
 const router = createBrowserRouter(
     [
@@ -34,7 +38,23 @@ const router = createBrowserRouter(
             path: "dashboard",
             element: <Dashboard></Dashboard>,
             children: [
-                
+                {
+                    path: "/dashboard",
+                    element: <MyGroup></MyGroup>,
+                },
+                {
+                    path: "addPost/:id",
+                    element: <AddPost></AddPost>
+                },
+                {
+                    path: "editPost",
+                    element: <EditPost></EditPost>
+                },
+                {
+                    path: "details/:id",
+                    element: <Details></Details>,
+                    loader: ({ params }) => fetch(`http://localhost:5000/community/details/${params.id}`)
+                }
             ]
         }
     ]
