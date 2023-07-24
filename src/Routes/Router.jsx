@@ -47,8 +47,9 @@ const router = createBrowserRouter(
                     element: <AddPost></AddPost>
                 },
                 {
-                    path: "editPost",
-                    element: <EditPost></EditPost>
+                    path: "editPost/:id",
+                    element: <EditPost></EditPost>,
+                    // loader: ({ params }) => fetch(`http://localhost:5000/posts/${params.id}`)
                 },
                 {
                     path: "details/:id",
