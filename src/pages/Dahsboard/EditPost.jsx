@@ -107,7 +107,7 @@ const EditPost = () => {
                     type="submit"
                     className="bg-primary text-white font-bold py-2 px-4 rounded"
                 >
-                    Create
+                    Update
                 </button>
             </form>
         </>
